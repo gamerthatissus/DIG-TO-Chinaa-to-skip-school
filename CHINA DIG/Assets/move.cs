@@ -38,7 +38,7 @@ myRigidbody.velocity=Vector3.up*10;
 
  if (Input.GetKeyDown(KeyCode.A)) 
  {
-    transform.rotation.x = transform.rotation.x + 1;
+    transform.Rotate(new Vector3(50,50,50));
  }
  
  if (Input.GetKeyDown(KeyCode.S) == true) 
