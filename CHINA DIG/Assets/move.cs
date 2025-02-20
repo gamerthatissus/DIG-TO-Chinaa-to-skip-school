@@ -6,9 +6,8 @@ public class move : MonoBehaviour
 {
 
     public Rigidbody myRigidbody;
-     public CapsuleCollider myCapsuleCollider;
+     public BoxCollider myCapsuleCollider;
 
-public float MyRotation;
      private bool isgrounded;
 
     // Start is called before the first frame update
@@ -36,19 +35,23 @@ myRigidbody.velocity=Vector3.up*10;
         }
 
 
- if (Input.GetKeyDown(KeyCode.A)) 
+ if (Input.GetKey(KeyCode.RightArrow))
  {
-    transform.Rotate(new Vector3(50,50,50));
- }
+    myRigidbody.MoveRotation(myRigidbody.rotation * Quaternion.Euler(0, -35 * Time.deltaTime, 0));
+ }     
+
  
- if (Input.GetKeyDown(KeyCode.S) == true) 
+ if (Input.GetKeyDown(KeyCode.LeftArrow) == true) 
  {
+  
 
 
  }
 
- if (Input.GetKeyDown(KeyCode.D) == true)
+ if (Input.GetKey(KeyCode.D) == true)
  {
+    
+     myRigidbody.MoveRotation(myRigidbody.rotation * Quaternion.Euler(0, 35 * Time.deltaTime, 0));
 
 
  }
