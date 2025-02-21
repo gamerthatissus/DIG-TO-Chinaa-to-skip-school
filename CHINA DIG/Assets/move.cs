@@ -31,7 +31,7 @@ myRigidbody.velocity=Vector3.up*10;
        
         if (Input.GetKeyDown(KeyCode.W) == true) 
         {
-
+ 
         }
 
 
@@ -41,14 +41,18 @@ myRigidbody.velocity=Vector3.up*10;
  }     
 
  
- if (Input.GetKeyDown(KeyCode.LeftArrow) == true) 
+ if (Input.GetKeyDown(KeyCode.D) == true) 
  {
+     
+     
+     if (Input.GetKeyDown(KeyCode.A) == true) 
+     {
   
 
 
  }
 
- if (Input.GetKey(KeyCode.D) == true)
+ if (Input.GetKey(KeyCode.LeftArrow) == true)
  {
     
      myRigidbody.MoveRotation(myRigidbody.rotation * Quaternion.Euler(0, 35 * Time.deltaTime, 0));
