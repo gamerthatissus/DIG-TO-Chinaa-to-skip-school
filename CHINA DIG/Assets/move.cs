@@ -33,7 +33,11 @@ public class move : MonoBehaviour
 myRigidbody.MovePosition(myRigidbody.position+transform.forward * (10 * Time.deltaTime));
         }
         
-      
+        if (Input.GetKey(KeyCode.S) == true) 
+        {
+            myRigidbody.MovePosition(myRigidbody.position+transform.forward * (-10 * Time.deltaTime));
+        }
+        
         if (Input.GetKey(KeyCode.D) == true)
         {
     
@@ -44,7 +48,7 @@ myRigidbody.MovePosition(myRigidbody.position+transform.forward * (10 * Time.del
         if (Input.GetKey(KeyCode.LeftArrow) == true)
         {
     
-            myRigidbody.MoveRotation(myRigidbody.rotation * Quaternion.Euler(0, -35 * Time.deltaTime, 0));
+            myRigidbody.MoveRotation(myRigidbody.rotation * Quaternion.Euler(0, -60 * Time.deltaTime, 0));
 
 
         }
@@ -52,7 +56,7 @@ myRigidbody.MovePosition(myRigidbody.position+transform.forward * (10 * Time.del
         if (Input.GetKey(KeyCode.RightArrow) == true)
         {
     
-            myRigidbody.MoveRotation(myRigidbody.rotation * Quaternion.Euler(0, 35 * Time.deltaTime, 0));
+            myRigidbody.MoveRotation(myRigidbody.rotation * Quaternion.Euler(0, 60 * Time.deltaTime, 0));
 
 
         }
