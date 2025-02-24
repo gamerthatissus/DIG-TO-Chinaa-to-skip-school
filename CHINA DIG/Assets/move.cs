@@ -7,7 +7,9 @@ public class move : MonoBehaviour
 
     public Rigidbody myRigidbody;
     public BoxCollider myCapsuleCollider;
+    public AudioSource mysound;
 
+    
     private bool isgrounded;
 
     // Start is called before the first frame update
@@ -21,8 +23,9 @@ public class move : MonoBehaviour
     {
         isgrounded=IsGrounded();
        
-        if (Input.GetKeyDown(KeyCode.Space) == true && isgrounded==true) 
+        if (Input.GetKeyDown(KeyCode.Space) == true && isgrounded==true)
         {
+            AudioSource.PlayClipAtPoint(mysound.clip,transform.position);
             myRigidbody.velocity=Vector3.up*10;
         }
        
