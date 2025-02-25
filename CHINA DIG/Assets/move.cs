@@ -31,11 +31,11 @@ mysound2.Play();
             
         }
 
-        if (myRigidbody.position.y < -20)
+        if (myRigidbody.position.y < -8)
         {
             myRigidbody.rotation=Quaternion.Euler(0,0,0);
-
-            myRigidbody.position = new Vector3(0, 20, 0);
+myRigidbody.velocity=Vector3.zero;
+            myRigidbody.position = new Vector3(0, 5, 0);
         }
 
         if (Input.GetKey(KeyCode.W) == true) 
