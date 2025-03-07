@@ -46,7 +46,7 @@ mysound2.Play();
 
         if (Input.GetKey(KeyCode.W) == true)
         {
-            if (speed < 3)
+            if (speed < 5)
             {
                 speed =  speed + (0.5f * Time.deltaTime) ;
 
@@ -55,20 +55,20 @@ mysound2.Play();
             {
                 if (speed < 15)
                 {
-                    speed = speed * (1.1f * Time.deltaTime);
+                    speed =  speed + (1f * Time.deltaTime) ;
                 }
                 else
                 {
                     if (speed < 25)
                     {
-                        speed = speed * (1.2f * Time.deltaTime);
+                        speed =  speed + (2f * Time.deltaTime) ;
 
                     }
                     else
                     {
                         if (speed < 50)
                         {
-                            speed = speed * (1.3f * Time.deltaTime);
+                            speed =  speed + (3f * Time.deltaTime) ;
 
                         }
                         else
@@ -86,9 +86,9 @@ mysound2.Play();
         }
         else
         {
-            if (speed > 0.1)
+            if (speed > 0.2)
             {
-                speed = speed/(2*Time.deltaTime);
+                speed = speed*(0.5f*Time.deltaTime);
 
             }
             else
