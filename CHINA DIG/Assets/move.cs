@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class move : MonoBehaviour
@@ -9,6 +10,7 @@ public class move : MonoBehaviour
     public BoxCollider myCapsuleCollider;
     public AudioSource mysound;
     public AudioSource mysound2;
+    public float speed = 0;
 
     
     private bool isgrounded;
@@ -16,12 +18,17 @@ public class move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        
 mysound2.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
+        myRigidbody.MovePosition(myRigidbody.position + transform.forward * (speed * Time.deltaTime));
+
+        
         isgrounded=IsGrounded();
        
         if (Input.GetKeyDown(KeyCode.Space) == true && isgrounded==true)
@@ -33,19 +40,67 @@ mysound2.Play();
 
         if (myRigidbody.position.y < -8)
         {
-            myRigidbody.rotation=Quaternion.Euler(0,0,0);
-myRigidbody.velocity=Vector3.zero;
+            myRigidbody.rotation=Quaternion.Euler(0,0,0); 
             myRigidbody.position = new Vector3(0, 5, 0);
         }
 
-        if (Input.GetKey(KeyCode.W) == true) 
+        if (Input.GetKey(KeyCode.W) == true)
         {
-myRigidbody.MovePosition(myRigidbody.position+transform.forward * (15 * Time.deltaTime));
+            if (speed < 3)
+            {
+                speed =  speed + (0.5f * Time.deltaTime) ;
+
+            }
+            else
+            {
+                if (speed < 15)
+                {
+                    speed = speed * (1.1f * Time.deltaTime);
+                }
+                else
+                {
+                    if (speed < 25)
+                    {
+                        speed = speed * (1.2f * Time.deltaTime);
+
+                    }
+                    else
+                    {
+                        if (speed < 50)
+                        {
+                            speed = speed * (1.3f * Time.deltaTime);
+
+                        }
+                        else
+                        {
+                            speed = 50;
+
+                        }
+
+                    }
+                }
+                
+                
+            }
+            
+        }
+        else
+        {
+            if (speed > 0.1)
+            {
+                speed = speed/(2*Time.deltaTime);
+
+            }
+            else
+            {
+                speed = 0;
+            }
+
         }
         
         if (Input.GetKey(KeyCode.S) == true) 
         {
-            myRigidbody.MovePosition(myRigidbody.position+transform.forward * (-10 * Time.deltaTime));
+            myRigidbody.MovePosition(myRigidbody.position + transform.forward * ((speed*-2) * Time.deltaTime));
         }
         
         if (Input.GetKey(KeyCode.Mouse1) == true && isgrounded==true) 
